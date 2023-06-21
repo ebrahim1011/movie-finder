@@ -1,0 +1,322 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>filink </title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="Pragma" content="no-cache">
+	<meta http-equiv="Cache-Control" content="no-cache">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<link rel="stylesheet" href="{% static 'style.css' %}">
+	<link rel="stylesheet" href="{% static 'modal.css' %}">
+	<link rel="stylesheet" href="{% static 'particl.css' %}">
+	<link rel="stylesheet" href="{% static 'mob.css' %}">
+	<link rel="stylesheet" href="{% static 'tab.css' %}">
+	<link rel="stylesheet" href="{% static 'desk.css' %}">
+	<link rel="stylesheet" href="{% static 'normalize.min.5.css' %}">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+		integrity="shya512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<script src="{% static 'scripts.js' %}"></script>
+
+</head>
+
+
+
+
+<body>
+	<div class="page-bg"></div>
+
+
+
+
+
+
+	<header>
+		<div class="box-right">
+
+			<div class="dropdown">
+				<img class="dropbtn" onclick="myFunction()" src="{% static 'list.png' %}">
+				<div id="myDropdown" class="dropdown-content gradient-border-login">
+					<div class="content-modal-login">
+						<form method="post">
+							{% csrf_token %}
+							{{check_form}}
+							<button class="btninp" type="submit">بعدی</button>
+						</form>
+
+
+						<a href=""><b>حمایت مالی</b></a>
+						{% if user.is_authenticated %}
+						<a href="{% url 'profile' %}"><b>پروفایل</b></a>
+						<p><a href="{% url 'logout' %}">Log Out</a></p>
+						{% endif %}
+						<hr>
+
+
+						<div class="other-p">
+							<section><img src="{% static 'ema-logo.JPG' %}">
+								<p>خانه هوشمند</p>
+							</section>
+							<section><img src="{% static 'tunnel.JPG' %}">
+								<p>تونل</p>
+							</section>
+							<section><img src="{% static 'nextcloud.png' %}">
+								<p>کلود</p>
+							</section>
+
+
+
+
+						</div>
+
+
+
+
+
+					</div>
+
+				</div>
+			</div>
+
+
+
+		</div>
+
+
+
+		<div class="box-left">
+			sd
+
+		</div>
+
+
+
+	</header>
+
+
+	<div class="content">
+
+
+		<div class="filink secimg">
+			<h2>Filink</h2>
+			<h2>Filink</h2>
+		</div>
+
+
+
+		<form method="post">
+			{% csrf_token %}
+			<div>
+
+				<i class="fa fa-solid fa-search search-icon" aria-hidden="true"></i>
+				{{query_form}}
+			</div>
+			<input type="hidden" value="">
+		</form>
+
+
+
+
+
+		{% if list %}
+
+		<section class="sectab">
+
+
+
+
+			<div class="box-mov">
+				<div class="img-cover-sec">
+					<section class="gradient-border">
+						<img class="gradient-border" src="{{imdb.Poster}}">
+					</section>
+				</div>
+				<section class="data-movi-sec">
+					<h1 class="h1-title-mov">{{imdb.Title}}</h1>
+
+					<span><i class="fa fa-video-camera director" style="font-size: 20px; color: #bbb;"
+							aria-hidden="true"></i>{{imdb.Director}}</span>
+					<span><i class="fa fa-calendar-o time-publish" style="font-size: 20px; color: #bbb;"
+							aria-hidden="true"></i>{{imdb.Year}}</span>
+
+
+
+				</section>
+
+				<section class="footer-data-movi">
+					<section><span>{{imdb.imdbRating}}</span>
+					</section>
+
+
+
+
+
+					{% endif %}
+			</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			{% for link in list %}
+			<div class="box-film">
+				<section class="box-film-left">
+					<h2 class="name-film">{{ imdb.Title }}</h2>
+				</section>
+
+
+
+				<section class="sec-link-fav">
+					<img src="{% static 'favicon.ico' %}">
+
+					<span class="film-url">{{link}}</span>
+				</section>
+
+
+				<div class="footer-box-film ">
+
+					{% if link in favorite %}
+					<form action="" method="post">
+						{% csrf_token %}
+						<input type="hidden" class="film-url" name="delete" value="{{link}}">
+						<input type="hidden" name="title" value="{{imdb.Title}}">
+
+						<a href="#" class="box-film-action"><button><img src="{% static '004-save-instagram.png' %}">
+								<p>delete</p>
+							</button></a>
+					</form>
+					{% else %}
+					<form action="" method="post">
+						{% csrf_token %}
+
+						<input type="hidden" class="film-url" name="link" value="{{link}}">
+						<input type="hidden" name="title" value="{{imdb.Title}}">
+
+						<a href="#" class="box-film-action"><button><img src="{% static '004-save-instagram.png' %}">
+								<p>Save</p>
+							</button></a>
+
+					</form>
+					{% endif %}
+
+					{% if '.mkv' in link %}
+					<a href="{{link}}" class="box-film-action"><img src="{% static '001-download.png' %}">
+						<p>Download</p>
+					</a>
+					{% else %}
+
+					<a onclick="document.getElementById('id01').style.display='block'" href="#" id=""
+						class="box-film-action "><img src="{% static '002-play-button.png' %}">
+						<p>Play</p>
+					</a>
+					<div id="id01" class="modal">
+						<span onclick="document.getElementById('id01').style.display='none'" class="close"
+							title="Close Modal">×</span>
+						<div class="container">
+
+							<video id="video" controls="" preload="none" poster="">
+								<source id="mp4" src="{{link}}" type="video/mp4">
+								<p>Your user agent does not support the HTML5 Video element.</p>
+							</video>
+
+						</div>
+					</div>
+
+
+
+
+
+
+
+					{% endif %}
+					<a href="#" class="box-film-action"><img src="{% static '003-shield.png' %}">
+						<p>Report</p>
+					</a>
+
+
+
+
+
+
+
+
+
+
+				</div>
+
+
+
+
+
+			</div>
+			{% endfor %}
+
+
+
+
+
+
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</div>
+
+
+	</section>
+
+
+
+
+
+	</div>
+
+
+
+
+
+
+
+	<script>
+		// Get the modal
+		var modal = document.getElementById('id01');
+
+		// When the user clicks anywhere outside of the modal, close it
+		window.onclick = function (event) {
+			if (event.target == modal) {
+				modal.style.display = "none";
+			}
+		}
+	</script>
+
+</body>
+
+</html>

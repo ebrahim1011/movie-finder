@@ -1,0 +1,52 @@
+@media screen and (min-width: 1025px)  {
+
+
+	.input-w{
+	width: 55%;
+position: relative;
+left: 23%;
+}
+
+.box-film{
+	width: 500px;
+max-width: 600px;
+height: 180px;
+margin: 0 auto;
+  margin-top: 0px;
+  margin-bottom: 0px;
+margin-top: 30px;
+margin-bottom: 30px;
+border-radius: 5px;
+padding: 10px 5px 5px 10px;
+background-color: #002f4b;
+}
+
+
+
+
+
+.box-mov{
+  width: 100%;
+background-color: #002f4bb5;
+max-width: 800px;
+margin: 0 auto;
+border-radius: 10px;
+height: 200px;
+min-height: 200px;
+max-height: 200px;
+margin-bottom: 160px;
+margin-top: 100px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+}

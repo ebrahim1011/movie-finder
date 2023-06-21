@@ -1,0 +1,54 @@
+body {
+    background-color: #006dba;
+}
+.loginform input{
+    background-color: darkcyan;
+    display: flex;
+    width: 60%;
+    align-items: center;
+    position: inherit;
+    margin: auto;
+    border: 0;
+    border-radius: 4px;
+}
+
+.loginform {
+    display: flex;
+    flex-direction: column;
+}
+
+.loginform label {
+    display: flex;
+}
+
+.loginform a {
+    text-decoration: none;
+    color: blue;
+}
+
+.login-box {
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    position: inherit;
+    border: 10px;
+    background-color: #5f85a0;
+    margin: 100px auto;
+    width: 60%;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.btn {
+    width: 15%;
+    margin: auto;
+    border-radius: 5px;
+    margin-top: 30px;
+    border: 0;
+}
+

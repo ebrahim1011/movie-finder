@@ -1,0 +1,25 @@
+@media screen and (min-width: 671px) and (max-width: 1024px)  {
+
+
+    .input-w{
+        width: 70%;
+    position: relative;
+    left: 15%;
+    }
+    
+    
+    .box-film{
+        width: 100%;
+        background-color: #60606045;
+        max-width: 800px;
+        margin: 0 auto;
+        border-radius: 10px;
+        height: 280px;
+        min-height: 280px;
+        max-height: 280px;
+    }
+    
+    
+    }
+    
+    
