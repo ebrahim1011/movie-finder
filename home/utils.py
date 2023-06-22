@@ -4,11 +4,6 @@ import requests
 from bs4 import BeautifulSoup
 
 
-email_address = ""
-list_link = []
-imdb_title = ''
-
-
 def link_mink(query):
     list_link = []
     result_go = search(query, tld="com", num=25, stop=25, pause=2)

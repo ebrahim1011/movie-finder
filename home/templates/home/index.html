@@ -42,32 +42,14 @@
 				<img class="dropbtn" onclick="myFunction()" src="{% static 'list.png' %}">
 				<div id="myDropdown" class="dropdown-content gradient-border-login">
 					<div class="content-modal-login">
-						<form method="post">
-							{% csrf_token %}
-							{{check_form}}
-							<button class="btninp" type="submit">بعدی</button>
-						</form>
 
-
-						<a href=""><b>حمایت مالی</b></a>
 						{% if user.is_authenticated %}
-						<a href="{% url 'profile' %}"><b>پروفایل</b></a>
-						<p><a href="{% url 'logout' %}">Log Out</a></p>
+						<p><a href="{% url 'accounts:user_logout' %}">Log Out</a></p>
+						{% else %}
+						<a href="{% url 'accounts:user_login' %}">Login</a>
+						<a href="{% url 'accounts:user_register' %}">Register</a>
 						{% endif %}
 						<hr>
-
-
-						<div class="other-p">
-							<section><img src="{% static 'ema-logo.JPG' %}">
-								<p>خانه هوشمند</p>
-							</section>
-							<section><img src="{% static 'tunnel.JPG' %}">
-								<p>تونل</p>
-							</section>
-							<section><img src="{% static 'nextcloud.png' %}">
-								<p>کلود</p>
-							</section>
-
 
 
 
