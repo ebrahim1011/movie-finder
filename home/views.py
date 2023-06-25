@@ -95,7 +95,6 @@ class HomeView(View):
         list_link = self.list_link
         if form.is_valid():
             query = form.cleaned_data['query']
-            print(query)
             list_link = link_mink(query)
             imdb_data = imdb(query)
             return render(request, 'home/index.html', {"list": list_link, 'query_form': form, 'imdb': imdb_data})
