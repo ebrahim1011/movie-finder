@@ -1,5 +1,5 @@
 # movie-finder
-# pip install requirements
+# pip install requirements.txt
 
 
 ###### با سرچ نام فیلم خود میتوانید لینک های دانلود و پخش آنلاین را بعد از چند ثانیه انتظار مشاهده کنید
